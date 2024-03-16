@@ -1,32 +1,36 @@
 import {BrowserRouter,Routes,Route} from "react-router-dom"
 
-import React from 'react'
+import React, { useContext } from 'react'
 import Front from "./components/Front"
-import Register from "./components/Register"
-import Login from "./components/Login"
+import Register from "./Auth/Register"
+import Login from "./Auth/Login"
 import Navbar from "./components/Layout/Navbar"
+import AuthContext from "./components/Context/userContext"
+import Logout from "./Auth/Logout"
+import CreatePost from "./components/CreatePost"
 
 function Router() {
+    const {isLoggedIn} = useContext(AuthContext);
   return (
     <>
     <BrowserRouter>
-    <Navbar/>
-    <Routes>
-        <Route  path="/" element={<Front/>}>
+      <Navbar/>
+      <Routes>
+        <Route  path="/" element={<Front/>}/>
+        {
+            isLoggedIn === false && <>
+              <Route path="/register" element={<Register/>}/>
+              <Route path="/login" element={<Login/>}/>
+            </>
+        }
+        {
+            isLoggedIn === true && <>
+              <Route path="/createPost" element={<CreatePost/>}/>
+              <Route path="/logout"  />
             
-           
-
-        </Route>
-        <Route path="/register" element={<Register/>}>
-       
-          
-
-        </Route>
-        <Route path="/login" element={<Login/>}>
-            
-           
-
-        </Route>
+            </>
+        }
+        
     </Routes>
     
     </BrowserRouter>

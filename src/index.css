@@ -11,3 +11,7 @@
   height: calc(100vh - 100px);
   /* background-color: red; */
 }
+
+::-webkit-scrollbar{
+  display: none;
+}

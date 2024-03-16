@@ -1,9 +1,10 @@
 
 import Navbar from "./components/Layout/Navbar.jsx";
 import Profile from "./components/Profile";
-import {createBrowserRouter,Outlet} from "react-router-dom"
 import axios from "axios";
 import Router from "./Router.js";
+
+import {UserContextProvider} from "./components/Context/userContext.js";
 
 axios.defaults.withCredentials = true;
 
@@ -11,7 +12,9 @@ function App() {
  
   return (
     <>
-    <Router/>
+    <UserContextProvider>
+      <Router/>
+    </UserContextProvider>
     
     
     </>

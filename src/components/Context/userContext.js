@@ -1,10 +1,30 @@
-import React from 'react'
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
+import { createContext } from 'react'
+import { Router } from 'react-router-dom';
 
-function userContextProvider() {
-  return (
-   <>
-   </>
-  )
+const AuthContext = createContext();
+
+function UserContextProvider(props) {
+    const [isLoggedIn, setisLoggedIn] = useState(undefined)
+
+    async function getLoggedIn(){
+        const res = await axios.get("http://localhost:3000/user/isLoggedIn")
+        const ans = await res.data
+        setisLoggedIn(ans);
+
+    }
+
+    useEffect(()=>{
+        getLoggedIn();
+
+    },[])
+
+    return(
+        <AuthContext.Provider value={{isLoggedIn,getLoggedIn}}>
+          {props.children}
+        </AuthContext.Provider>
+    )
 }
-
-export default userContextProvider
+export default AuthContext
+export  {UserContextProvider}
