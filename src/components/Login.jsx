@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { fetcher } from '../API/userAPI';
 import axios from 'axios';
+import Cookies from "js-cookie"
 
 const Login = () => {
     const [formData, setFormData] = useState({
@@ -8,33 +9,13 @@ const Login = () => {
         email:"",
         password:""
     })
-    const [msg,setMsg] = useState()
-    const [color,setColor] = useState()
-
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
-    const handleSubmit=async(e)=>{
-        e.preventDefault();
-        try {
-        const res = await axios.post("/user/login",formData)
-        
-       
-        if(res.status === 200){
-            console.log();
-            setColor("green")
-           
-        }
-        } catch (error) {
-            console.error(error)
-            
-        }
+  
 
-        
-        
-        
-    }
+    
 
 
 
@@ -43,9 +24,9 @@ const Login = () => {
     <div className="sm:mx-auto sm:w-full sm:max-w-sm text-center space-y-2">
      
       <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
-        Create your account with us
+        Login
       </h2>
-      <span className={`text-red-600 text-${color}`} >{msg}</span>
+      {/* <span className={`text-red-600 text-${color}`} >{msg}</span> */}
     </div>
 
     <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-sm">

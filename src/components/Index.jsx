@@ -1,16 +1,16 @@
-import React from 'react'
-import Register from './Register'
-import Login from './Login'
+// import React from 'react'
+// import Register from './Register'
+// import Login from './Login'
 
-const Index = () => {
-  return (
-    <div className='w-[50%] border-2 h-[80%]'>
-        <Login/>
-        {/* <Register/> */}
+// const Index = () => {
+//   return (
+//     <div className='w-[50%] border-2 h-[80%]'>
+//         <Login/>
+//         {/* <Register/> */}
         
 
-    </div>
-  )
-}
+//     </div>
+//   )
+// }
 
-export default Index
+// export default Index

@@ -15,27 +15,7 @@ const Register = () => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
-    const handleSubmit=async(e)=>{
-        e.preventDefault();
-        try {
-        const res = await axios.post("http://localhost:8000/user/register",formData)
-        console.log(res.data.msg);
-        
-        setMsg(res.data.msg)
-        if(res.status === 200){
-            console.log("registerd successfully");
-            setColor("green")
-           
-        }
-        } catch (error) {
-            console.error(error)
-            
-        }
-
-        
-        
-        
-    }
+   
 
 
 
