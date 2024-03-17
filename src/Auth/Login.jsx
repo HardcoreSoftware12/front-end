@@ -3,7 +3,7 @@ import axios from 'axios';
 import Cookies from "js-cookie"
 import AuthContext from '../components/Context/userContext';
 
-import { useNavigate } from "react-router-dom";
+import { useNavigate,redirect } from "react-router-dom";
 
 const Login = () => {
  
@@ -15,6 +15,7 @@ const Login = () => {
         email:"",
         password:""
     })
+
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
@@ -24,7 +25,9 @@ const Login = () => {
       console.log(formData);
       const res = await axios.post("http://localhost:3000/user/login",formData);
       await getLoggedIn();
-      history("/");
+      history("/home");
+      // return redirect("/getAllPost");
+
       
      
 

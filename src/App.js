@@ -11,13 +11,15 @@ axios.defaults.withCredentials = true;
 function App() {
  
   return (
-    <>
-    <UserContextProvider>
-      <Router/>
-    </UserContextProvider>
+    <div className="bg-[#FFFFFF]">
+      <UserContextProvider>
+        <Router/>
+      </UserContextProvider>
+    </div>
+   
     
     
-    </>
+   
   );
 }
 // export const router = createBrowserRouter([

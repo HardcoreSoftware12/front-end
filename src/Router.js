@@ -8,6 +8,7 @@ import Navbar from "./components/Layout/Navbar"
 import AuthContext from "./components/Context/userContext"
 import Logout from "./Auth/Logout"
 import CreatePost from "./components/CreatePost"
+import HomePage from "./components/User/HomePage"
 
 function Router() {
     const {isLoggedIn} = useContext(AuthContext);
@@ -26,6 +27,10 @@ function Router() {
         {
             isLoggedIn === true && <>
               <Route path="/createPost" element={<CreatePost/>}/>
+              <Route path="/home" element={<HomePage/>}/>
+              <Route path="/viewpost" element={<CreatePost/>}/>
+              <Route path="/updatepost" element={<CreatePost/>}/>
+              <Route path="/deletepost" element={<CreatePost/>}/>
               <Route path="/logout"  />
             
             </>
