@@ -23,7 +23,7 @@ const Login = () => {
     const handleSubmit=async(e)=>{
       e.preventDefault();
       console.log(formData);
-      const res = await axios.post("http://localhost:3000/user/login",formData);
+      const res = await axios.post("http://localhost:8000/user/login",formData);
       await getLoggedIn();
       history("/home");
       // return redirect("/getAllPost");

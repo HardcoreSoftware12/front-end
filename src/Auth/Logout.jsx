@@ -9,7 +9,7 @@ function Logout() {
     const history = useNavigate()
     async function handleLogout(){
       
-        const res = await axios.get("http://localhost:3000/user/logout");
+        const res = await axios.get("http://localhost:8000/user/logout");
        
         await getLoggedIn();
         history("/login")

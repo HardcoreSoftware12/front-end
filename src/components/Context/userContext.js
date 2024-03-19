@@ -9,7 +9,7 @@ function UserContextProvider(props) {
     const [isLoggedIn, setisLoggedIn] = useState(undefined)
 
     async function getLoggedIn(){
-        const res = await axios.get("http://localhost:3000/user/isLoggedIn")
+        const res = await axios.get("http://localhost:8000/user/isLoggedIn")
         const ans = await res.data
         setisLoggedIn(ans);
 
