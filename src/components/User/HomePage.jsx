@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
+import Cards from './Cards';
 
 function HomePage() {
     const[posts,setPosts] = useState([]);
@@ -16,17 +17,18 @@ function HomePage() {
 
     },[])
   return (
-    <div>
-        Home page where you can c all posts by all users
+    <div className='w-[90%] mx-auto border '>
+        {/* Home page where you can c all posts by all users
         {
             posts.map((post,i)=>(
                 <>
                  <p>{post.title}</p>
-                <p>{post.description}</p>
+                 <p>{post.description}</p>
                 </>
                
             ))
-        }
+        } */}
+        <Cards/>
 
 
     </div>
