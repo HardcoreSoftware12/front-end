@@ -7,8 +7,8 @@ function HomePage() {
 
     async function getAllPost(){
         let res = await axios.get("http://localhost:8000/notes/getnote")
-        console.log(res.data.notes);
-        setPosts(res.data.notes);
+        console.log(res.data);
+        setPosts(res.data);
 
 
     }
@@ -18,16 +18,16 @@ function HomePage() {
     },[])
   return (
     <div className='w-[90%] mx-auto border '>
-        {/* Home page where you can c all posts by all users
+        Home page where you can c all posts by all users
         {
             posts.map((post,i)=>(
-                <>
+                <div key={post._id}>
                  <p>{post.title}</p>
                  <p>{post.description}</p>
-                </>
+                </div>
                
             ))
-        } */}
+        }
         <Cards/>
 
 

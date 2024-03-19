@@ -4,7 +4,7 @@ import axios from 'axios';
 
 
 
-const categories = ['Category 1', 'Category 2', 'Category 3', 'Category 4'];
+const categories = ['Web Dev', 'Science', 'Politics', 'Education','Entertainment','SelfHelp','Meditation'];
 
 function CreatePost() {
   const [formData, setFormData] = useState({
@@ -50,18 +50,9 @@ function CreatePost() {
         />
       </div>
 
-      <div className="flex items-center mb-4">
-        <label htmlFor="description" className="w-1/3 text-right pr-4">Description:</label>
-        <textarea
-          id="description"
-          name="description"
-          value={formData.description}
-          onChange={handleChange}
-          className="border-b border-gray-400 w-full h-32 focus:outline-none resize-none"
-        />
-      </div>
+    
 
-      {/* <div className="flex items-center mb-4">
+      <div className="flex items-center mb-4">
         <label htmlFor="smallDescription" className="w-1/3 text-right pr-4">Small Description:</label>
         <input
           type="text"
@@ -74,7 +65,18 @@ function CreatePost() {
       </div>
 
       <div className="flex items-center mb-4">
-        <label htmlFor="photo" className="w-1/3 text-right pr-4">Photo:</label>
+        <label htmlFor="description" className="w-1/3 text-right pr-4">Description:</label>
+        <textarea
+          id="description"
+          name="description"
+          value={formData.description}
+          onChange={handleChange}
+          className="border-b border-gray-400 w-full h-32 focus:outline-none resize-none"
+        />
+      </div>
+
+      <div className="flex items-center mb-4">
+        <label htmlFor="photo" className="w-1/3 text-right pr-4">Banner Image:</label>
         <input
           type="file"
           id="photo"
@@ -99,7 +101,7 @@ function CreatePost() {
             <option key={category} value={category}>{category}</option>
           ))}
         </select>
-      </div> */}
+      </div>
 
       <button type="submit" className="mx-auto bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">
         Submit
