@@ -12,6 +12,7 @@ import HomePage from "./components/User/HomePage"
 // import MyPosts from "./components/User/MyPosts"
 import Footer from "./components/Layout/Footer"
 import UserPosts from "./components/User/UserPosts"
+import UpdatePost from "./components/User/UpdatePost"
 // import UpdatePost from "./components/User/UpdatePost"
 
 function Router() {
@@ -36,7 +37,7 @@ function Router() {
               <Route path="/createpost" element={<CreatePost/>}/>
              
               {/* <Route path="/viewpost" element={<CreatePost/>}/> */}
-              {/* <Route path="/updatepost/:id" element={<UpdatePost/>}/> */}
+              <Route path="/update/:id" element={<UpdatePost/>}/>
               <Route path="/deletepost/:id" />
               <Route path="/logout"  />
             

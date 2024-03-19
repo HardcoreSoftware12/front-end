@@ -34,7 +34,8 @@ function UserPosts() {
             {/* Add more fields as needed */}
           </li>
           <button onClick={()=>handleDelete(post._id)}>Delete</button>
-          <Link>Update</Link>
+          <Link to={`/update/${post._id}`}> Update</Link>   
+          {/* dont miss slash here it will also take the path of this element */}
           </>
         ))}
       </ul>
