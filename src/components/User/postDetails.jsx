@@ -38,8 +38,8 @@ function PostDetails() {
 
 
       </div>
-      <div className='w-full mt-4 desktop:w-[60%] bg-cover'>
-        <img className='w-full' src={`http://localhost:8000/uploads/${state.photo.replace('uploads\\', '')}` } alt="" />
+      <div className='w-full mt-4  desktop:w-[60%] bg-cover'>
+        <img className=' mx-auto w-full max-w-[770px] max-h-[430px]' src={`http://localhost:8000/uploads/${state.photo.replace('uploads\\', '')}` } alt="" />
 
       </div>
     </div>
