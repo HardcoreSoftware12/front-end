@@ -11,30 +11,38 @@ function CreatePost() {
     title: '',
     description: '',
     smallDescription: '',
-    photo: '',
+    photo: null,
     category: '',
-  });
+  })
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
     console.log(formData);
   };
+  const handleImageChange =(e)=>{
+    setFormData({...formData,photo:e.target.files[0]})
+    console.log(formData);
+  }
 
   const handleSubmit = async(e) => {
     e.preventDefault();
-    // Handle form submission logic here
-   const res =  await axios.post("http://localhost:8000/notes/createpost",formData,{
-    headers:{'Content-Type':'multipart/form-data'}
-   })
-   console.log(res.data);
-   setFormData({
-    title: '',
-    description: '',
-    smallDescription: '',
-    photo: '',
-    category: '',
-  })
+    const postData = new FormData();
+    postData.append('title',formData.title)
+    postData.append('description',formData.description)
+    postData.append('smallDescription',formData.smallDescription)
+    postData.append('photo',formData.photo)
+    postData.append('category',formData.category)
+    try {
+      const res = await axios.post('http://localhost:8000/notes/createpost',postData);
+      console.log(res.data);
+      
+    } catch (error) {
+      console.error(error)
+      
+    }
+    
+  
   };
   return (
     <div className="max-w-lg mx-auto mt-8">
@@ -87,7 +95,7 @@ function CreatePost() {
           id="photo"
           name="photo"
           accept="image/*"
-          onChange={handleChange}
+          onChange={handleImageChange}
           className="border-b border-gray-400 w-full focus:outline-none"
         />
       </div>

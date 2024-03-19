@@ -13,6 +13,8 @@ import HomePage from "./components/User/HomePage"
 import Footer from "./components/Layout/Footer"
 import UserPosts from "./components/User/UserPosts"
 import UpdatePost from "./components/User/UpdatePost"
+import PostDetails from "./components/User/PostDetails"
+
 // import UpdatePost from "./components/User/UpdatePost"
 
 function Router() {
@@ -39,6 +41,8 @@ function Router() {
               {/* <Route path="/viewpost" element={<CreatePost/>}/> */}
               <Route path="/update/:id" element={<UpdatePost/>}/>
               <Route path="/deletepost/:id" />
+              <Route path="/postdetails" element={<PostDetails/>} />
+
               <Route path="/logout"  />
             
             </>

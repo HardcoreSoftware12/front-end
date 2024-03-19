@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import Cards from './Cards';
+import PostCard from './PostCard';
 
 function HomePage() {
     const[posts,setPosts] = useState([]);
@@ -18,8 +19,7 @@ function HomePage() {
     },[])
   return (
     <div className='w-[90%] mx-auto border '>
-        Home page where you can c all posts by all users
-        {
+        {/* {
             posts.map((post,i)=>(
                 <div key={post._id}>
                  <p>{post.title}</p>
@@ -27,8 +27,17 @@ function HomePage() {
                 </div>
                
             ))
-        }
-        <Cards/>
+        } */}
+        <div className='flex flex-wrap justify-center gap-4'>
+      
+      
+        {posts.map((post) => (
+        //   <PostCard key={post._id} post={post} />
+          <Cards key={post._id} post={post} />
+        ))}
+      
+    </div>
+        
 
 
     </div>
