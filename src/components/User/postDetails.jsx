@@ -70,6 +70,11 @@ async function getPost(id){
             alt=''
           />
         </div>
+        <div className='w-[80%] mx-auto text-[25px] mt-10'>
+      <p>
+        {post.description}
+      </p>
+    </div>
       </div>
     ) : (
       <p className='mx-auto text-3xl'>Loading...</p> // Render a loading message while post is undefined
