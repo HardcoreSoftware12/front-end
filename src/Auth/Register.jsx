@@ -19,7 +19,7 @@ const Register = () => {
     const handleSubmit=async(e)=>{
       e.preventDefault();
       
-      const res = await axios.post("http://localhost:8000/user/register",formData);
+      const res = await axios.post("https://noteapi-bpu4.onrender.com/user/register",formData);
       console.log(res.data.msg);
       console.log(res.status);
       setMsg(res.data.msg)
