@@ -24,7 +24,7 @@ const Login = () => {
     const handleSubmit=async(e)=>{
       e.preventDefault();
       
-      const res = await axios.post("https://noteapi-bpu4.onrender.com/user/login",formData);
+      const res = await axios.post("https://back-end-mr6o.onrender.com/user/login",formData);
       
      setMsg(res.data.msg)
       

@@ -9,9 +9,9 @@ function UserContextProvider(props) {
     const [isLoggedIn, setisLoggedIn] = useState(undefined)
 
     async function getLoggedIn(){
-        const res = await axios.get("https://noteapi-bpu4.onrender.com/user/isLoggedIn")
+        const res = await axios.get("https://back-end-mr6o.onrender.com/user/isLoggedIn")
         console.log(res.data);
-        setisLoggedIn(res.data);
+        setisLoggedIn(true);
 
     }
 
