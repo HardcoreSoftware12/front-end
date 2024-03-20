@@ -49,7 +49,7 @@ const Navbar = () => {
     <div className='w-full h-[100px] flex justify-between items-center text-3xl bg-[#35374B] p-10'>
         {/* <h1 className='text-white'></h1> */}
         <div className='text-white '>
-        <Link onClick={handleClick} to="/home">Blog-Dogg</Link>
+        <Link onClick={handleClick}  to="/home">Blog-Dogg</Link>
         </div>
 
 

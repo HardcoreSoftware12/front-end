@@ -22,7 +22,7 @@ function UserContextProvider(props) {
 
     return(
         <AuthContext.Provider value={{isLoggedIn,getLoggedIn}}>
-          {props.children}
+           {props.children} {/*//Router */}
         </AuthContext.Provider>
     )
 }

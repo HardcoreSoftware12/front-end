@@ -2,8 +2,10 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import Cards from './Cards';
 import PostCard from './PostCard';
+import { useLocation } from 'react-router-dom';
 
 function HomePage() {
+   
     const[posts,setPosts] = useState([]);
 
     async function getAllPost(){

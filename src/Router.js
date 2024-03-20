@@ -34,14 +34,14 @@ function Router() {
         }
         {
             isLoggedIn === true && <>
-             <Route path="/home" element={<HomePage/>}/>
+             <Route path="/" element={<HomePage/>}/>
              <Route path="/mypost" element={<UserPosts/>}/>
               <Route path="/createpost" element={<CreatePost/>}/>
              
               {/* <Route path="/viewpost" element={<CreatePost/>}/> */}
               <Route path="/update/:id" element={<UpdatePost/>}/>
               <Route path="/deletepost/:id" />
-              <Route path="/postdetails" element={<PostDetails/>} />
+              <Route path="/postdetails/:id" element={<PostDetails/>} />
 
               <Route path="/logout"  />
             

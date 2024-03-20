@@ -25,7 +25,7 @@ const Login = () => {
       console.log(formData);
       const res = await axios.post("http://localhost:8000/user/login",formData);
       await getLoggedIn();
-      history("/home");
+      history("/");
       // return redirect("/getAllPost");
 
       
