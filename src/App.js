@@ -11,7 +11,7 @@ axios.defaults.withCredentials = true;
 function App() {
  
   return (
-    <div className="bg-[#FFFFFF] ">
+    <div className="bg-[#FEFBF6] h-[100vh] h-fit">
       <UserContextProvider>
         <Router/>
       </UserContextProvider>

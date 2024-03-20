@@ -8,7 +8,7 @@ function UserPosts() {
 
   async function getMyPost(){
       let res = await axios.get("http://localhost:8000/notes/myposts")
-      console.log(res.data);
+      
       setPosts(res.data);
 
 
@@ -20,7 +20,7 @@ function UserPosts() {
   async function handleDelete(id){
     let res = await axios.delete(`http://localhost:8000/notes/deletepost/${id}`)
     setPosts(posts.filter(post=>post._id !== id))
-    console.log(res.data);
+   
 
   }
 return (
@@ -35,8 +35,8 @@ return (
     
   </div>
       ) : (
-        <div>
-          <h1>No posts yet</h1>
+        <div className='mx-auto w-fit mt-10 text-4xl'>
+          <h1>No posts yet create posts for free.</h1>
         </div>
       )
     }

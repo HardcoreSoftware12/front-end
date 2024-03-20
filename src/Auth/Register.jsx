@@ -10,7 +10,6 @@ const Register = () => {
         password:""
     })
     const [msg,setMsg] = useState()
-    const [color,setColor] = useState()
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -19,10 +18,15 @@ const Register = () => {
 
     const handleSubmit=async(e)=>{
       e.preventDefault();
-      console.log(formData);
+      
       const res = await axios.post("http://localhost:8000/user/register",formData);
-      console.log(res.data);
-      history("/login");
+      console.log(res.data.msg);
+      console.log(res.status);
+      setMsg(res.data.msg)
+      if(res.data.msg == "Registerd Successfully"){
+        history("/login");
+      }
+     
     }
 
    
@@ -30,16 +34,16 @@ const Register = () => {
 
 
   return (
-    <div className="mx-auto w-[40%] flex min-h-full flex-1 flex-col justify-center px-6 py-2 lg:px-8 border-black">
+    <div className="mt-10 w-[60%] mx-auto desktop:w-[40%]">
     <div className="sm:mx-auto sm:w-full sm:max-w-sm text-center space-y-2">
      
-      <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
+      <h2 className="mt-5 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
         Create your account with
       </h2>
-      <span className={`text-red-600 text-${color}`} >{msg}</span>
+      <span className={`text-red-600 `} >{msg}</span>
     </div>
 
-    <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-sm">
+    <div className="mx-auto mt-10 w-[60%] md: w-full">
       <form className="space-y-6" onSubmit={handleSubmit} method="POST">
       <div>
           <label htmlFor="username" className="block text-sm font-medium leading-6 text-gray-900">
@@ -101,20 +105,20 @@ const Register = () => {
           </div>
         </div>
 
-        <div>
+        <div className='mx-auto w-[40%] '>
           <button
             type="submit"
-            className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+            className=" flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
           >
-            Sign in
+           Register
           </button>
         </div>
       </form>
 
       <p className="mt-10 text-center text-sm text-gray-500">
         Have Account?{' '}
-        <a href="#" className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">
-          Go to Login page
+        <a href="/login" className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">
+          Login
         </a>
       </p>
     </div>

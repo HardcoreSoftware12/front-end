@@ -7,7 +7,7 @@ import axios from 'axios';
 
 function PostDetails() {
   let {id} = useParams();
-  console.log(id);
+  
   
   const[username,setUsername]=useState('')
   const [post, setPost] = useState()
@@ -16,7 +16,7 @@ function PostDetails() {
     
     const res = await axios.get(`http://localhost:8000/user/getuserbyid/${id}`);
     setUsername(res.data.username)
-    console.log(res.data);
+    
     
 
 }
@@ -25,7 +25,7 @@ async function getPost(id){
     
   const res = await axios.get(`http://localhost:8000/notes/getone/${id}`);
   setPost(res.data)
-  console.log(res.data);
+  
   
 
 }
@@ -73,7 +73,7 @@ async function getPost(id){
             </div>
           </div>
         </div>
-        <div className='w-full mt-4 desktop:w-[60%] bg-cover'>
+        <div className='w-full mt-4 desktop:w-[60%] bg-cover '>
           <img
             className='mx-auto w-full max-w-[770px] max-h-[430px]'
             src={`http://localhost:8000/uploads/${post.photo.replace('uploads\\', '')}`}

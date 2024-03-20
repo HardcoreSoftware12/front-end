@@ -4,7 +4,11 @@ module.exports = {
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily:{
+        'kolker-brush': ['Kolker Brush', 'cursive'],
+      }
+    },
     screens:{
       desktop:'1280px',
 

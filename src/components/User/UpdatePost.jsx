@@ -11,6 +11,7 @@ function UpdatePost() {
   const {id} = useParams()
   
   const [post, setPost] = useState()
+  const [msg, setMsg] = useState()
   const [formData, setFormData] = useState({
     title: '',
     description: '',
@@ -22,7 +23,7 @@ function UpdatePost() {
     
     const res = await axios.get(`http://localhost:8000/notes/getone/${id}`);
     setPost(res.data)
-    console.log(res.data);
+   
     
   
   }
@@ -64,14 +65,16 @@ function UpdatePost() {
     
     try {
       const res = await axios.put(`http://localhost:8000/notes/updatepost/${post._id}`, updatedData);
-      console.log(res.data);
+      setMsg(res.data.msg);
+     
     } catch (error) {
       console.error(error);
     }
   };
   return (
-    <div className="max-w-lg mx-auto mt-8">
-    <h1 className="text-2xl font-bold mb-4">Create New Item</h1>
+    <div className="w-[90%] mx-auto mt-8">
+    <h1 className="w-fit mx-auto text-2xl font-bold mb-10">Create New Item</h1>
+    <p className='text-green-500 mx-auto w-fit mb-5'>{msg}</p>
     <form onSubmit={handleSubmit} className="space-y-6" encType='multipart/form-data'>
       {/* TITLE */}
       <div className="flex items-center mb-4">
@@ -144,10 +147,12 @@ function UpdatePost() {
           ))}
         </select>
       </div>
-
-      <button type="submit" className="mx-auto bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">
-        Submit
-      </button>
+      <div className='flex justify-center'>
+          <button type="submit" className=" bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 ">
+              Submit
+          </button>
+      </div>
+      
     </form>
   </div>
     

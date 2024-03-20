@@ -14,11 +14,7 @@ function Logout() {
         await getLoggedIn();
         history("/login")
 
-    //     e.preventDefault();
-    //   console.log(formData);
-    //   const res = await axios.post("http://localhost:3000/user/login",formData);
-    //   await getLoggedIn();
-    //   history("/");
+    
 
 
     }

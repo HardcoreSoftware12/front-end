@@ -49,6 +49,10 @@ function Router() {
         }
         
     </Routes>
+    {/* {
+      isLoggedIn &&(<Footer/>)
+    } */}
+    
 
     
     

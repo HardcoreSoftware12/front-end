@@ -9,6 +9,7 @@ const Login = () => {
  
   const {getLoggedIn} = useContext(AuthContext)
   const history = useNavigate()
+  const[msg,setMsg] = useState()
 
     const [formData, setFormData] = useState({
         
@@ -22,10 +23,16 @@ const Login = () => {
 
     const handleSubmit=async(e)=>{
       e.preventDefault();
-      console.log(formData);
+      
       const res = await axios.post("http://localhost:8000/user/login",formData);
+      
+     setMsg(res.data.msg)
+      
       await getLoggedIn();
-      history("/");
+      if(res.data.msg == "user loggedIn"){
+        history("/");
+      }
+      
       // return redirect("/getAllPost");
 
       
@@ -41,16 +48,16 @@ const Login = () => {
 
 
   return (
-    <div className="mx-auto w-[40%] flex min-h-full flex-1 flex-col justify-center px-6 py-2 lg:px-8">
+    <div className="mt-10 w-[60%] mx-auto desktop:w-[40%]">
     <div className="sm:mx-auto sm:w-full sm:max-w-sm text-center space-y-2">
      
-      <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
+      <h2 className="mt-5 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
         Login
       </h2>
-      {/* <span className={`text-red-600 text-${color}`} >{msg}</span> */}
+      <span className={`text-red-600`} >{msg}</span>
     </div>
 
-    <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-sm">
+    <div className="mx-auto mt-10 w-[60%] md: w-full">
       <form className="space-y-6" onSubmit={handleSubmit} method="POST">
      
         <div>
@@ -96,7 +103,7 @@ const Login = () => {
           </div>
         </div>
 
-        <div>
+        <div className='mx-auto w-[40%] '>
           <button
             type="submit"
             className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"

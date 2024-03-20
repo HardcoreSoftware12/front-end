@@ -18,11 +18,11 @@ function CreatePost() {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
-    console.log(formData);
+    
   };
   const handleImageChange =(e)=>{
     setFormData({...formData,photo:e.target.files[0]})
-    console.log(formData);
+    
   }
 
   const handleSubmit = async(e) => {
@@ -35,7 +35,15 @@ function CreatePost() {
     postData.append('category',formData.category)
     try {
       const res = await axios.post('http://localhost:8000/notes/createpost',postData);
-      console.log(res.data);
+     
+      window.alert("post saved successfully");
+      setFormData({
+        title: '',
+        description: '',
+        smallDescription: '',
+        photo: null,
+        category: '',
+      })
       
     } catch (error) {
       console.error(error)
@@ -45,12 +53,16 @@ function CreatePost() {
   
   };
   return (
-    <div className="max-w-lg mx-auto mt-8">
-    <h1 className="text-2xl font-bold mb-4">Create New Item</h1>
+    <div className="w-[90%] mx-auto mt-8">
+      <div className='mb-10'>  
+      <h1 className="mx-auto w-fit text-2xl font-bold mb-4">Create New Item</h1>
+      <p className='mx-auto w-fit'>required fields(<span className='text-red-800 text-xl '>*</span>)</p>
+      </div>
+   
     <form onSubmit={handleSubmit} className="space-y-6" encType='multipart/form-data'>
       {/* TITLE */}
       <div className="flex items-center mb-4">
-        <label htmlFor="title" className="w-1/3 text-right pr-4">Title:</label>
+        <label htmlFor="title" className="w-1/3 text-right pr-4">Title: <span className='text-red-800 text-xl'>*</span></label>
         <input
           type="text"
           id="title"
@@ -64,7 +76,7 @@ function CreatePost() {
     
       {/* SMALL DESCRIPTION  */}
       <div className="flex items-center mb-4">
-        <label htmlFor="smallDescription" className="w-1/3 text-right pr-4">Small Description:</label>
+        <label htmlFor="smallDescription" className="w-1/3 text-right pr-4">Small Description:<span className='text-red-800 text-xl'>*</span></label>
         <input
           type="text"
           id="smallDescription"
@@ -77,7 +89,7 @@ function CreatePost() {
 
       {/* FULL BLOG PARAGRAPH  */}
       <div className="flex items-center mb-4">
-        <label htmlFor="description" className="w-1/3 text-right pr-4">Description:</label>
+        <label htmlFor="description" className="w-1/3 text-right pr-4">Description:<span className='text-red-800 text-xl'>*</span></label>
         <textarea
           id="description"
           name="description"
@@ -89,7 +101,7 @@ function CreatePost() {
 
       {/* IMAGE FOR BLOG  */}
       <div className="flex items-center mb-4">
-        <label htmlFor="photo" className="w-1/3 text-right pr-4">Banner Image:</label>
+        <label htmlFor="photo" className="w-1/3 text-right pr-4">Banner Image:<span className='text-red-800 text-xl'>*</span></label>
         <input
           type="file"
           id="photo"
@@ -103,7 +115,7 @@ function CreatePost() {
 
        {/* CHOOSE CATEGORY  */}
       <div className="flex items-center mb-4">
-        <label htmlFor="category" className="w-1/3 text-right pr-4">Category:</label>
+        <label htmlFor="category" className="w-1/3 text-right pr-4">Category:<span className='text-red-800 text-xl'>*</span></label>
         <select
           id="category"
           name="category"
@@ -117,10 +129,12 @@ function CreatePost() {
           ))}
         </select>
       </div>
-
-      <button type="submit" className="mx-auto bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">
+<div className='flex justify-center'>
+<button type="submit" className="mx-auto bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">
         Submit
       </button>
+</div>
+      
     </form>
   </div>
   
