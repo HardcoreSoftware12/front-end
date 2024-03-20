@@ -42,6 +42,7 @@ async function getPost(id){
   return (
     <div className='w-[90%] mx-auto mt-5'>
     {post ? ( // Check if post is defined
+    <>
       <div className='w-full p-5 desktop:flex justify-between gap-10 p-0 mt-10'>
         <div className='w-[100%] mt-10 space-y-5 desktop:w-[40%]'>
           <p>{post.category} 10 MINUTE READ</p>
@@ -70,12 +71,14 @@ async function getPost(id){
             alt=''
           />
         </div>
-        <div className='w-[80%] mx-auto text-[25px] mt-10'>
-      <p>
-        {post.description}
-      </p>
-    </div>
+      
       </div>
+        <div className='w-[80%] mx-auto text-[25px] mt-10'>
+        <p>
+          {post.description}
+        </p>
+      </div>
+      </>
     ) : (
       <p className='mx-auto text-3xl'>Loading...</p> // Render a loading message while post is undefined
     )}

@@ -13,7 +13,7 @@ import HomePage from "./components/User/HomePage"
 import Footer from "./components/Layout/Footer"
 import UserPosts from "./components/User/UserPosts"
 import UpdatePost from "./components/User/UpdatePost"
-import PostDetails from "./components/User/PostDetails"
+import PostDetails from "./components/User/postDetails"
 
 // import UpdatePost from "./components/User/UpdatePost"
 
