@@ -12,9 +12,9 @@ function PostDetails() {
   const[username,setUsername]=useState('')
   const [post, setPost] = useState()
   
-  async function getUser(){
+  async function getUser(id){
     
-    const res = await axios.get("http://localhost:8000/user/getuser");
+    const res = await axios.get(`http://localhost:8000/user/getuserbyid/${id}`);
     setUsername(res.data.username)
     console.log(res.data);
     
@@ -31,11 +31,20 @@ async function getPost(id){
 }
 
   useEffect(()=>{
-    getUser();
+    
     if(id){
       getPost(id);
     }
+   
   },[id])
+
+  useEffect(()=>{
+    
+    if(post){
+      getUser(post.userId);
+    }
+   
+  },[post])
   
 
     

@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const Register = () => {
+  const history = useNavigate()
     const [formData, setFormData] = useState({
         username:'',
         email:"",
@@ -20,6 +22,7 @@ const Register = () => {
       console.log(formData);
       const res = await axios.post("http://localhost:8000/user/register",formData);
       console.log(res.data);
+      history("/login");
     }
 
    

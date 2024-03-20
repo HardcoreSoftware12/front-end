@@ -1,44 +1,50 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
+import Cards from './Cards';
 
 function UserPosts() {
-    const[posts,setPosts] = useState([]);
-    async function getPosts(){
-        const res = await axios.get("http://localhost:8000/notes/myposts")
-        console.log(res.data.resp)
-        setPosts(res.data.resp)
+  const[posts,setPosts] = useState([]);
+
+  async function getMyPost(){
+      let res = await axios.get("http://localhost:8000/notes/myposts")
+      console.log(res.data);
+      setPosts(res.data);
+
+
+  }
+  useEffect(()=>{
+      getMyPost();
+
+  },[])
+  async function handleDelete(id){
+    let res = await axios.delete(`http://localhost:8000/notes/deletepost/${id}`)
+    setPosts(posts.filter(post=>post._id !== id))
+    console.log(res.data);
+
+  }
+return (
+  <div className='w-[90%] mx-auto border '>
+    {
+      !posts.length == 0  ? (
+      <div className='flex flex-wrap justify-center gap-4'>
+    
+      {posts.map((post) => (
+        <Cards key={post._id} post={post} onDelete={handleDelete} />
+      ))}
+    
+  </div>
+      ) : (
+        <div>
+          <h1>No posts yet</h1>
+        </div>
+      )
     }
-
-    useEffect(()=>{
-        getPosts();
-        
-    },[])
-
-    async function handleDelete(id){
-        const res= await axios.delete(`http://localhost:8000/notes/deletepost/${id}`)
-        console.log(res);
-        getPosts();
-
-    }
-  return (
+      
+  
+    
+  </div>
    
-    <ul>
-        {posts.map(post => (
-            <>
-          <li key={post._id} className='mt-10'>
-            <h2>{post.title}</h2>
-            <p>{post.description}</p>
-            <p>Posted by: {post.userId}</p>
-            <p>Created at: {new Date(post.createdAt).toLocaleString()}</p>
-            {/* Add more fields as needed */}
-          </li>
-          <button onClick={()=>handleDelete(post._id)}>Delete</button>
-          <Link to={`/update/${post._id}`}> Update</Link>   
-          {/* dont miss slash here it will also take the path of this element */}
-          </>
-        ))}
-      </ul>
   )
 }
 
