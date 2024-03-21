@@ -18,7 +18,7 @@ const Navbar = () => {
 
   async function handleLogout(){
     
-      const res = await axios.get("http://localhost:8000/user/logout");
+      const res = await axios.get("https://back-end-mr6o.onrender.com/user/logout");
       
       setToggle(!toggle);
       await getLoggedIn();
@@ -37,7 +37,7 @@ const Navbar = () => {
   }
   async function getUser(){
     
-    const res = await axios.get("http://localhost:8000/user/getuser");
+    const res = await axios.get("https://back-end-mr6o.onrender.com/user/getuser");
     setUsername(res.data.username)
     setEmail(res.data.email)
     

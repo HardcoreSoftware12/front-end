@@ -21,7 +21,7 @@ function UpdatePost() {
   });
   async function getPost(id){
     
-    const res = await axios.get(`http://localhost:8000/notes/getone/${id}`);
+    const res = await axios.get(`https://back-end-mr6o.onrender.com/notes/getone/${id}`);
     setPost(res.data)
    
     
@@ -64,7 +64,7 @@ function UpdatePost() {
     updatedData.append('category', formData.category);
     
     try {
-      const res = await axios.put(`http://localhost:8000/notes/updatepost/${post._id}`, updatedData);
+      const res = await axios.put(`https://back-end-mr6o.onrender.com/notes/updatepost/${post._id}`, updatedData);
       setMsg(res.data.msg);
      
     } catch (error) {

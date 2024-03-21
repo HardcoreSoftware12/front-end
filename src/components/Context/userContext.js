@@ -11,7 +11,7 @@ function UserContextProvider(props) {
     async function getLoggedIn(){
         const res = await axios.get("https://back-end-mr6o.onrender.com/user/isLoggedIn")
         console.log(res.data);
-        setisLoggedIn(true);
+        setisLoggedIn(res.data);
 
     }
 

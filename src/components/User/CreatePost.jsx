@@ -34,7 +34,7 @@ function CreatePost() {
     postData.append('photo',formData.photo)
     postData.append('category',formData.category)
     try {
-      const res = await axios.post('http://localhost:8000/notes/createpost',postData);
+      const res = await axios.post('https://back-end-mr6o.onrender.com/notes/createpost',postData);
      
       window.alert("post saved successfully");
       setFormData({

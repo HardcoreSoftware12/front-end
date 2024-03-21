@@ -14,7 +14,7 @@ function PostDetails() {
   
   async function getUser(id){
     
-    const res = await axios.get(`http://localhost:8000/user/getuserbyid/${id}`);
+    const res = await axios.get(`https://back-end-mr6o.onrender.com/user/getuserbyid/${id}`);
     setUsername(res.data.username)
     
     
@@ -23,7 +23,7 @@ function PostDetails() {
 
 async function getPost(id){
     
-  const res = await axios.get(`http://localhost:8000/notes/getone/${id}`);
+  const res = await axios.get(`https://back-end-mr6o.onrender.com/notes/getone/${id}`);
   setPost(res.data)
   
   
@@ -76,7 +76,7 @@ async function getPost(id){
         <div className='w-full mt-4 desktop:w-[60%] bg-cover '>
           <img
             className='mx-auto w-full max-w-[770px] max-h-[430px]'
-            src={`http://localhost:8000/uploads/${post.photo.replace('uploads\\', '')}`}
+            src={`https://back-end-mr6o.onrender.com/uploads/${post.photo.replace('uploads\\', '')}`}
             alt=''
           />
         </div>

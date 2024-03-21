@@ -7,7 +7,7 @@ function UserPosts() {
   const[posts,setPosts] = useState([]);
 
   async function getMyPost(){
-      let res = await axios.get("http://localhost:8000/notes/myposts")
+      let res = await axios.get("https://back-end-mr6o.onrender.com/notes/myposts")
       
       setPosts(res.data);
 
@@ -18,7 +18,7 @@ function UserPosts() {
 
   },[])
   async function handleDelete(id){
-    let res = await axios.delete(`http://localhost:8000/notes/deletepost/${id}`)
+    let res = await axios.delete(`https://back-end-mr6o.onrender.com/notes/deletepost/${id}`)
     setPosts(posts.filter(post=>post._id !== id))
    
 

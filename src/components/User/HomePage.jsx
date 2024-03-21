@@ -7,7 +7,7 @@ function HomePage() {
     const[posts,setPosts] = useState([]);
 
     async function getAllPost(){
-        let res = await axios.get("http://localhost:8000/notes/getnote")
+        let res = await axios.get("https://back-end-mr6o.onrender.com/notes/getnote")
         
         setPosts(res.data);
 
